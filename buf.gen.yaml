@@ -1,0 +1,20 @@
+version: v1
+plugins:
+  # generate go structs for protocol buffer defination
+  - plugin: buf.build/protocolbuffers/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  # generate gRPC stubs in golang
+  - plugin: buf.build/grpc/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  # generate reverse proxy from protocol definations
+  - plugin: buf.build/grpc-ecosystem/gateway
+    out: gen/go
+    opt:
+      - paths=source_relative
+  # generate openapi documentation for api
+  - plugin: buf.build/grpc-ecosystem/openapiv2
+    out: gen/openapiv2

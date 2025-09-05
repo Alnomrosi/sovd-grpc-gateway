@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// options used by gRPC golang plugin(not related to gRPC gateway)
+option go_package = "github.com/anshulrgoyal/grpc-gateway-demo;sovd_grpc_gateway";
+
+// well know type by google, gRPC gateway uses HTTP annotation.
+import "google/api/annotations.proto";
+
+package sovdserver;
+
+service AppLauncher {
+  rpc ListApplications(ListRequest) returns (ListResponse) {
+    option (google.api.http) = {
+      get: "/components/AGL/related-apps"
+    };
+  }
+}
+
+message ListRequest {
+}
+
+message ListResponse {
+  repeated AppInfo apps = 1;
+}
+
+message AppInfo {
+  string id = 1;
+  string name = 2;
+  string icon_path = 3;
+}
