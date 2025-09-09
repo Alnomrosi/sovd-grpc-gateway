@@ -1,4 +1,4 @@
-module sovd-grpc-gateway
+module module github.com/Alnomrosi/sovd-grpc-gateway
 
 go 1.25.0
 
