@@ -7,7 +7,7 @@ import (
     "net/http"
     "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
     "google.golang.org/grpc"
-    gen "sovd-grpc-gateway/gen/go/applications_manager"
+    gen "github.com/Alnomrosi/sovd-grpc-gateway/gen/go/applications_manager"
 )
 
 func main() {
